@@ -30,11 +30,6 @@ const FAQS: { question: string; answer: string }[] = [
     answer:
       "APY (Annual Percentage Yield) is the yearly rate your savings would grow at, including compounding. In this demo, Verith simulates a 4.25% APY on your balance so you can see how interest accrues over time.",
   },
-  {
-    question: "How do goals work?",
-    answer:
-      "Goals let you set aside part of your balance toward something specific — a trip, a fund, a purchase. Create a goal with a target amount, then contribute to it whenever you like. Progress is tracked visually until you hit 100%.",
-  },
 ];
 
 export default function SupportPage() {

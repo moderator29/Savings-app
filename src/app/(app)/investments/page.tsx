@@ -4,12 +4,11 @@ import { motion } from "framer-motion";
 import { Rocket, Scale, Shield, Sparkles, TrendingUp, type LucideIcon } from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { GlassCard } from "@/components/ui/glass-card";
-import { Button } from "@/components/ui/button";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { PageHeader } from "@/components/shared/page-header";
 import { formatCurrency } from "@/lib/utils";
 
-const PORTFOLIO_VALUE = 12450;
+const PORTFOLIO_VALUE = 3_150_000;
 
 interface Allocation {
   name: string;
@@ -18,10 +17,12 @@ interface Allocation {
 }
 
 const ALLOCATION: Allocation[] = [
-  { name: "Savings", percent: 60, color: "#24a878" },
-  { name: "Index funds", percent: 25, color: "#4cc294" },
+  { name: "Savings", percent: 40, color: "#24a878" },
+  { name: "Index funds", percent: 22, color: "#4cc294" },
+  { name: "Stocks", percent: 16, color: "#168860" },
   { name: "Bonds", percent: 10, color: "#f0c96a" },
-  { name: "Cash", percent: 5, color: "#b9ead4" },
+  { name: "Real estate", percent: 8, color: "#86dab7" },
+  { name: "Cash", percent: 4, color: "#b9ead4" },
 ];
 
 interface Strategy {
@@ -195,14 +196,6 @@ export default function InvestmentsPage() {
                 </div>
               </div>
               <p className="mt-4 flex-1 text-sm text-ink-600">{s.body}</p>
-              <Button
-                variant="outline"
-                size="sm"
-                disabled
-                className="mt-5 w-full opacity-60"
-              >
-                Coming soon
-              </Button>
             </GlassCard>
           ))}
         </div>

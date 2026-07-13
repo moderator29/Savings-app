@@ -10,13 +10,10 @@ import {
   PiggyBank,
   Sparkles,
 } from "lucide-react";
-import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { PageHeader } from "@/components/shared/page-header";
 import { StatCard } from "@/components/shared/stat-card";
-import { TransactionRow } from "@/components/shared/transaction-row";
-import { EmptyState } from "@/components/shared/empty-state";
 import { selectApyEarned, useVerith } from "@/lib/store";
 import { SEED_APY } from "@/lib/seed";
 import type { Transaction } from "@/lib/types";
@@ -36,10 +33,6 @@ export default function SavingsPage() {
         t.type === "deposit" && t.amount > 0 && new Date(t.date).getTime() >= cutoff
     )
     .reduce((sum: number, t: Transaction) => sum + t.amount, 0);
-
-  const activity = transactions
-    .filter((t: Transaction) => t.type === "deposit" || t.type === "apy" || t.type === "withdraw")
-    .slice(0, 6);
 
   return (
     <div className="space-y-6">
@@ -103,34 +96,14 @@ export default function SavingsPage() {
           delay={0.16}
         />
         <StatCard
-          label="Auto-save"
-          value={350}
+          label="Next payout"
+          value={150000}
           icon={CalendarCheck}
-          trendLabel="to Dream Home"
-          trend={0}
+          trendLabel="in 3 days"
           delay={0.22}
         />
       </section>
 
-      {/* Activity */}
-      <GlassCard delay={0.25} hover={false} className="p-5 sm:p-6">
-        <h2 className="mb-2 text-base font-extrabold tracking-tight text-ink-900">
-          Savings activity
-        </h2>
-        {activity.length === 0 ? (
-          <EmptyState
-            icon={PiggyBank}
-            title="No savings activity yet"
-            body="Deposits, withdrawals and daily interest will show up here."
-          />
-        ) : (
-          <div>
-            {activity.map((tx: Transaction, i: number) => (
-              <TransactionRow key={tx.id} tx={tx} index={i} />
-            ))}
-          </div>
-        )}
-      </GlassCard>
     </div>
   );
 }
