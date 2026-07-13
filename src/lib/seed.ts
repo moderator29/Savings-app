@@ -1,0 +1,73 @@
+import type {
+  AppNotification,
+  Goal,
+  LockedPlan,
+  Transaction,
+} from "./types";
+
+// Demo data seeded into every new local account. All figures are simulated —
+// nothing here represents real money or a real financial product.
+
+const daysAgo = (n: number) => {
+  const d = new Date();
+  d.setDate(d.getDate() - n);
+  d.setHours(9 + (n % 8), (n * 13) % 60, 0, 0);
+  return d.toISOString();
+};
+
+export const SEED_BALANCE = 24_563.8;
+export const SEED_APY = 4.25;
+
+export const seedTransactions = (): Transaction[] => [
+  { id: "t1", type: "deposit",  label: "Deposit · Checking ••4821", amount: 1200,   date: daysAgo(1),  status: "completed" },
+  { id: "t2", type: "apy",      label: "APY earnings payout",       amount: 86.42,  date: daysAgo(3),  status: "completed" },
+  { id: "t3", type: "goal",     label: "Auto-save · Dream Home",    amount: -350,   date: daysAgo(5),  status: "completed" },
+  { id: "t4", type: "withdraw", label: "Withdrawal · Checking ••4821", amount: -500, date: daysAgo(8), status: "completed" },
+  { id: "t5", type: "reward",   label: "Savings streak reward",     amount: 25,     date: daysAgo(11), status: "completed" },
+  { id: "t6", type: "deposit",  label: "Deposit · Checking ••4821", amount: 2000,   date: daysAgo(14), status: "completed" },
+  { id: "t7", type: "lock",     label: "Locked savings · 6-month",  amount: -3000,  date: daysAgo(18), status: "completed" },
+  { id: "t8", type: "apy",      label: "APY earnings payout",       amount: 79.1,   date: daysAgo(21), status: "completed" },
+  { id: "t9", type: "deposit",  label: "Deposit · Checking ••4821", amount: 1500,   date: daysAgo(26), status: "completed" },
+];
+
+export const seedGoals = (): Goal[] => [
+  { id: "g1", name: "Dream Home",     emoji: "🏡", target: 40000, saved: 18250, createdAt: daysAgo(120) },
+  { id: "g2", name: "Emergency Fund", emoji: "🛟", target: 10000, saved: 8400,  createdAt: daysAgo(200) },
+  { id: "g3", name: "Japan Trip",     emoji: "🗻", target: 6000,  saved: 2150,  createdAt: daysAgo(60) },
+];
+
+export const seedLockedPlans = (): LockedPlan[] => [
+  { id: "l1", name: "6-Month Growth Lock", amount: 3000, apy: 5.1, termMonths: 6,  startedAt: daysAgo(18) },
+  { id: "l2", name: "12-Month Reserve",    amount: 5000, apy: 5.6, termMonths: 12, startedAt: daysAgo(95) },
+];
+
+export const seedNotifications = (name: string): AppNotification[] => [
+  {
+    id: "n1",
+    title: `Welcome to Verith, ${name.split(" ")[0]} 👋`,
+    body: "Your demo account is ready. Explore savings, goals and locked plans — all data is simulated.",
+    date: new Date().toISOString(),
+    read: false,
+  },
+  {
+    id: "n2",
+    title: "APY payout received",
+    body: "Your latest earnings payout of $86.42 has been added to your balance.",
+    date: daysAgo(3),
+    read: false,
+  },
+  {
+    id: "n3",
+    title: "Savings streak: 45 days 🔥",
+    body: "You've saved consistently for 45 days. Keep the streak alive!",
+    date: daysAgo(6),
+    read: true,
+  },
+];
+
+// 12-month balance history for the portfolio chart
+export const seedHistory = () => {
+  const months = ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+  const values = [9800, 11200, 12100, 13650, 14900, 16400, 17250, 18900, 20300, 21750, 23100, 24563];
+  return months.map((month, i) => ({ month, value: values[i] }));
+};
