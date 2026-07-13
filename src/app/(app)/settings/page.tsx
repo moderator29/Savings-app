@@ -78,7 +78,7 @@ export default function SettingsPage() {
   const [weeklySummary, setWeeklySummary] = React.useState(false);
   const [soundEffects, setSoundEffects] = React.useState(false);
   const [productUpdates, setProductUpdates] = React.useState(true);
-  const [goalReminders, setGoalReminders] = React.useState(true);
+  const [payoutAlerts, setPayoutAlerts] = React.useState(true);
   const [confirmOpen, setConfirmOpen] = React.useState(false);
 
   const handleReset = () => {
@@ -105,7 +105,7 @@ export default function SettingsPage() {
               onToggle={() => setPrivacyMode((v) => !v)}
             />
             <ToggleRow
-              label="Weekly summary (demo)"
+              label="Weekly summary"
               description="A recap of your savings activity every Monday."
               on={weeklySummary}
               onToggle={() => setWeeklySummary((v) => !v)}
@@ -129,10 +129,10 @@ export default function SettingsPage() {
               onToggle={() => setProductUpdates((v) => !v)}
             />
             <ToggleRow
-              label="Goal reminders"
-              description="Nudges to keep your savings goals on track."
-              on={goalReminders}
-              onToggle={() => setGoalReminders((v) => !v)}
+              label="Payout alerts"
+              description="Get notified before each APY payout lands."
+              on={payoutAlerts}
+              onToggle={() => setPayoutAlerts((v) => !v)}
             />
           </div>
         </GlassCard>
@@ -140,12 +140,12 @@ export default function SettingsPage() {
         <GlassCard className="p-6" delay={0.19}>
           <SectionTitle>Data &amp; privacy</SectionTitle>
           <p className="text-sm leading-relaxed text-ink-600">
-            Verith is a demo. Everything is stored locally in your browser
-            &mdash; nothing is sent to a server.
+            Your data is stored securely and only you can access it. You can
+            reset your account at any time.
           </p>
           <div className="mt-5">
             <Button variant="outline" onClick={() => setConfirmOpen(true)}>
-              Reset demo data
+              Reset account data
             </Button>
           </div>
         </GlassCard>
@@ -156,17 +156,17 @@ export default function SettingsPage() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="pb-2 text-center text-xs text-ink-400"
         >
-          Verith demo &middot; v1.0.0
+          Verith &middot; v1.0.0
         </motion.p>
       </div>
 
       <Modal
         open={confirmOpen}
         onClose={() => setConfirmOpen(false)}
-        title="Reset demo data?"
+        title="Reset account data?"
       >
         <p className="text-sm leading-relaxed text-ink-600">
-          This clears your local demo account and returns you to sign-up.
+          This clears your account data and returns you to sign-up.
         </p>
         <div className="mt-6 flex justify-end gap-3">
           <Button variant="ghost" onClick={() => setConfirmOpen(false)}>

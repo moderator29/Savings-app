@@ -58,7 +58,7 @@ export default function ApyEarningsPage() {
             <TrendingUp className="mb-2 h-6 w-6 text-emerald-300" />
           </div>
           <p className="mt-2 text-sm text-white/70">
-            Annual Percentage Yield · compounds daily · demo
+            Annual Percentage Yield · compounds daily
           </p>
 
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-10 border-t border-white/10 pt-5">

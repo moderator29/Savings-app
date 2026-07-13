@@ -84,7 +84,7 @@ export default function LockedSavingsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Locked Savings"
-        subtitle="Lock funds for a fixed term to earn a higher APY — demo"
+        subtitle="Lock funds for a fixed term to earn a higher APY"
         action={
           <Button onClick={() => setOpen(true)}>
             <Plus className="h-4 w-4" /> New Lock

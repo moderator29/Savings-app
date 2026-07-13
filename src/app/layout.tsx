@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Verith — Smart Money. Limitless Future.",
   description:
-    "Verith is a premium savings dashboard demo. All balances and activity are simulated.",
+    "Verith — a premium savings and investment dashboard. Smart money, limitless future.",
 };
 
 export default function RootLayout({

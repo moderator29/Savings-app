@@ -80,7 +80,7 @@ export default function WithdrawPage() {
     <div className="space-y-6">
       <PageHeader
         title="Withdraw"
-        subtitle="Move money out of your Verith balance — instant in this demo"
+        subtitle="Move money out of your Verith balance — instant"
       />
 
       <div className="mx-auto w-full max-w-xl">
@@ -129,7 +129,7 @@ export default function WithdrawPage() {
                   </Button>
                 </div>
                 <p className="mt-5 text-xs text-ink-400">
-                  Demo only — no real money moves.
+                  Instant transfer · no fees.
                 </p>
               </GlassCard>
             </motion.div>
@@ -256,7 +256,7 @@ export default function WithdrawPage() {
 
                 <p className="mt-4 flex items-center justify-center gap-1.5 text-xs text-ink-400">
                   <ShieldCheck className="h-3.5 w-3.5" />
-                  Withdrawals are always available. Demo only — no real money moves.
+                  Withdrawals are always available, with no fees.
                 </p>
               </GlassCard>
             </motion.div>

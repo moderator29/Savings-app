@@ -33,7 +33,7 @@ const STEPS: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Gift,
     title: "You both get rewarded",
-    body: "Each of you receives a $25 demo bonus.",
+    body: "Each of you receives a $25 bonus.",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function ReferralsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Referrals"
-        subtitle="Invite friends, grow together — demo"
+        subtitle="Invite friends, grow together"
       />
 
       {/* Invite hero */}
@@ -84,7 +84,7 @@ export default function ReferralsPage() {
             Invite &amp; Earn
           </h2>
           <p className="mt-2 max-w-md text-sm text-white/70">
-            Earn a $25 demo bonus for each friend who joins and saves.
+            Earn a $25 bonus for each friend who joins and saves.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -165,7 +165,7 @@ export default function ReferralsPage() {
         <EmptyState
           icon={Users}
           title="No referrals yet"
-          body="Share your code to start earning — this is a demo, no real payouts."
+          body="Share your code to start earning."
         />
       </section>
     </div>

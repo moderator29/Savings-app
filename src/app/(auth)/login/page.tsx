@@ -51,7 +51,7 @@ export default function LoginPage() {
             Welcome back
           </h1>
           <p className="mt-1.5 text-sm text-ink-400">
-            Sign in to your Verith demo account.
+            Sign in to your Verith account.
           </p>
         </div>
 

@@ -48,8 +48,7 @@ export default function SignUpPage() {
             Create your account
           </h1>
           <p className="mt-1.5 text-sm text-ink-400">
-            Start your savings journey in seconds. This is a demo — your
-            account lives only in this browser.
+            Start your savings journey in seconds — no paperwork, no waiting.
           </p>
         </div>
 

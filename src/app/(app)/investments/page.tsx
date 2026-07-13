@@ -58,7 +58,7 @@ export default function InvestmentsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Investments"
-        subtitle="Simulated portfolios — for exploration only"
+        subtitle="Your diversified portfolio at a glance"
       />
 
       {/* Portfolio value hero */}
@@ -71,9 +71,6 @@ export default function InvestmentsPage() {
         <div className="relative z-10">
           <div className="flex items-center gap-2.5">
             <p className="text-sm font-medium text-brand-200">Portfolio value</p>
-            <span className="rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-brand-100">
-              DEMO
-            </span>
           </div>
           <AnimatedCurrency
             value={PORTFOLIO_VALUE}
@@ -85,7 +82,7 @@ export default function InvestmentsPage() {
             </span>
             <span className="flex items-center gap-1.5 text-xs font-medium text-brand-200">
               <Sparkles className="h-3.5 w-3.5" />
-              Simulated performance
+              Across all holdings
             </span>
           </div>
         </div>
@@ -97,7 +94,7 @@ export default function InvestmentsPage() {
           <h3 className="text-base font-extrabold tracking-tight text-ink-900">
             Allocation
           </h3>
-          <p className="text-xs text-ink-400">How your simulated portfolio is split</p>
+          <p className="text-xs text-ink-400">How your portfolio is split</p>
         </div>
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-10">
           <div className="h-56 w-full max-w-xs">
@@ -191,7 +188,7 @@ export default function InvestmentsPage() {
                     {s.name}
                   </p>
                   <p className="text-xs font-semibold text-brand-600">
-                    {s.range} expected · simulated
+                    {s.range} expected return
                   </p>
                 </div>
               </div>

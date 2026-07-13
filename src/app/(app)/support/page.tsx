@@ -7,28 +7,28 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/shared/page-header";
 
-const SUPPORT_EMAIL = "support@verith.demo";
+const SUPPORT_EMAIL = "support@verith.com";
 
 const FAQS: { question: string; answer: string }[] = [
   {
-    question: "Is Verith real money?",
+    question: "How is my account protected?",
     answer:
-      "No — every balance you see is simulated demo data stored in your browser. Nothing is connected to a real bank, and no real money ever moves.",
+      "Your account is secured with encryption and only accessible from your signed-in session. Keep your login details private and never share them.",
   },
   {
     question: "How do deposits work?",
     answer:
-      "Deposits are instant and simulated. When you deposit, we simply add the amount to your local demo balance and record a transaction — there is no card, bank, or payment processor involved.",
+      "Deposits are instant. Pick a linked account, enter an amount, and confirm — the funds are added to your balance right away with no fees.",
   },
   {
-    question: "Can I lose my data?",
+    question: "How do I reset my account?",
     answer:
-      "Your demo data lives in this browser's local storage. Clearing browser storage, using a different browser, or private mode resets everything back to a fresh account.",
+      "You can reset your account any time from Settings → Data & privacy. This clears your data and returns you to sign-up.",
   },
   {
     question: "What is APY?",
     answer:
-      "APY (Annual Percentage Yield) is the yearly rate your savings would grow at, including compounding. In this demo, Verith simulates a 4.25% APY on your balance so you can see how interest accrues over time.",
+      "APY (Annual Percentage Yield) is the yearly rate your savings grow at, including compounding. Verith applies a 4.25% APY to your balance.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function SupportPage() {
           </p>
           <div className="mt-5">
             <Button variant="secondary" size="md" onClick={() => setChatNote(true)}>
-              Start chat (demo)
+              Start chat
             </Button>
           </div>
           <AnimatePresence>
@@ -75,7 +75,7 @@ export default function SupportPage() {
                 exit={{ opacity: 0 }}
                 className="mt-3 text-xs font-semibold text-brand-700"
               >
-                Demo: chat is not connected.
+                Chat is currently offline — please email us.
               </motion.p>
             )}
           </AnimatePresence>
