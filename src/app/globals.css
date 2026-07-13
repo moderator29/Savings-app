@@ -75,3 +75,26 @@ body {
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+/* Soft emerald glass used by the swipeable announcement banner */
+.glass-emerald {
+  background: linear-gradient(
+    135deg,
+    rgb(18 109 79 / 0.9) 0%,
+    rgb(22 136 96 / 0.86) 48%,
+    rgb(36 168 120 / 0.82) 100%
+  );
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid rgb(255 255 255 / 0.22);
+}
+
+.glass-emerald::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(520px 200px at 82% -30%, rgb(255 255 255 / 0.18), transparent 60%),
+    radial-gradient(360px 180px at 6% 130%, rgb(134 218 183 / 0.22), transparent 55%);
+  pointer-events: none;
+}
