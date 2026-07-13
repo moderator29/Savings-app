@@ -50,7 +50,7 @@ export default function DepositPage() {
       return;
     }
     if (parsed > 25000) {
-      setError("Deposits are limited to $25,000 per transfer in this demo.");
+      setError("Deposits are limited to $25,000 per transfer.");
       return;
     }
     const method = METHODS.find((m) => m.id === methodId) ?? METHODS[0];
@@ -69,7 +69,7 @@ export default function DepositPage() {
     <div className="mx-auto w-full max-w-xl">
       <PageHeader
         title="Deposit"
-        subtitle="Add money to your Verith balance — instant in this demo"
+        subtitle="Add money to your Verith balance — instant"
       />
 
       <GlassCard className="p-6" delay={0.1}>
@@ -166,7 +166,7 @@ export default function DepositPage() {
                             {method.label}
                           </span>
                           <span className="block text-xs text-ink-400">
-                            Demo source
+                            Linked account
                           </span>
                         </span>
                       </button>
@@ -184,7 +184,7 @@ export default function DepositPage() {
               </Button>
 
               <p className="text-center text-xs text-ink-400">
-                Demo only — no real money moves.
+                Instant transfer · no fees.
               </p>
             </motion.form>
           ) : (
@@ -236,7 +236,7 @@ export default function DepositPage() {
                 </Button>
               </div>
               <p className="mt-5 text-xs text-ink-400">
-                Demo only — no real money moves.
+                Instant transfer · no fees.
               </p>
             </motion.div>
           )}

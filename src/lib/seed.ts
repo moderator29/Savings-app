@@ -44,7 +44,7 @@ export const seedNotifications = (name: string): AppNotification[] => [
   {
     id: "n1",
     title: `Welcome to Verith, ${name.split(" ")[0]} 👋`,
-    body: "Your demo account is ready. Explore savings and locked plans — all data is simulated.",
+    body: "Your account is ready. Explore savings, locked plans and investments.",
     date: new Date().toISOString(),
     read: false,
   },

@@ -38,7 +38,7 @@ export default function SavingsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Savings"
-        subtitle="Your flexible balance, earning every day — demo funds only."
+        subtitle="Your flexible balance, earning every day."
       />
 
       {/* Hero */}
@@ -59,7 +59,7 @@ export default function SavingsPage() {
             />
             <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-brand-100">
               <Percent className="h-3.5 w-3.5" />
-              {SEED_APY}% APY · compounds daily — demo
+              {SEED_APY}% APY · compounds daily
             </span>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">

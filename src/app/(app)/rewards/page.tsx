@@ -53,7 +53,7 @@ export default function RewardsPage() {
     <div className="space-y-6">
       <PageHeader
         title="Rewards"
-        subtitle="Earn perks for consistent saving — demo"
+        subtitle="Earn perks for consistent saving"
       />
 
       {/* Streak hero */}

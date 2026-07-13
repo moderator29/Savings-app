@@ -76,9 +76,6 @@ export default function DashboardPage() {
               >
                 {hidden ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
               </button>
-              <span className="rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-brand-100">
-                DEMO
-              </span>
             </div>
             {hidden ? (
               <p className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
@@ -172,7 +169,7 @@ export default function DashboardPage() {
           <div className="mb-2 flex items-start justify-between">
             <div>
               <h3 className="text-base font-extrabold text-ink-900">Savings Growth</h3>
-              <p className="text-xs text-ink-400">Last 12 months · simulated</p>
+              <p className="text-xs text-ink-400">Last 12 months</p>
             </div>
             <span className="flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1.5 text-xs font-bold text-brand-700">
               <TrendingUp className="h-3.5 w-3.5" /> +150%
