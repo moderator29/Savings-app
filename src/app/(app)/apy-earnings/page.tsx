@@ -74,7 +74,7 @@ export default function ApyEarningsPage() {
             <div className="flex items-center gap-2 text-sm text-white/80">
               <CalendarClock className="h-4 w-4 text-emerald-300" />
               <span>
-                Next payout <span className="font-semibold text-white">$86.90</span> · in 3 days
+                Next payout <span className="font-semibold text-white">$150,000</span> · in 3 days
               </span>
             </div>
           </div>

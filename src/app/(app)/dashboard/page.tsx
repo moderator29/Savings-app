@@ -5,15 +5,12 @@ import { motion } from "framer-motion";
 import {
   ArrowDownToLine,
   ArrowUpFromLine,
-  ArrowUpRight,
   Calendar,
   Eye,
   EyeOff,
   Gift,
   Lock,
   Percent,
-  PiggyBank,
-  Target,
   TrendingUp,
   Wallet,
 } from "lucide-react";
@@ -29,7 +26,6 @@ import { AnnouncementBanner } from "@/components/dashboard/announcement-banner";
 import { GlassCard } from "@/components/ui/glass-card";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { StatCard } from "@/components/shared/stat-card";
-import { TransactionRow } from "@/components/shared/transaction-row";
 import { seedHistory, SEED_APY } from "@/lib/seed";
 import { selectApyEarned, selectLockedTotal, useVerith } from "@/lib/store";
 import { cn, firstName, formatCurrency } from "@/lib/utils";
@@ -37,7 +33,6 @@ import { cn, firstName, formatCurrency } from "@/lib/utils";
 const quickActions = [
   { label: "Deposit", href: "/deposit", icon: ArrowDownToLine },
   { label: "Withdraw", href: "/withdraw", icon: ArrowUpFromLine },
-  { label: "Save", href: "/goals", icon: PiggyBank },
   { label: "Lock Funds", href: "/locked-savings", icon: Lock },
   { label: "Rewards", href: "/rewards", icon: Gift },
 ];
@@ -45,8 +40,6 @@ const quickActions = [
 export default function DashboardPage() {
   const user = useVerith((s) => s.user);
   const balance = useVerith((s) => s.balance);
-  const transactions = useVerith((s) => s.transactions);
-  const goals = useVerith((s) => s.goals);
   const lockedTotal = useVerith(selectLockedTotal);
   const apyEarned = useVerith(selectApyEarned);
   const [hidden, setHidden] = useState(false);
@@ -122,7 +115,7 @@ export default function DashboardPage() {
                 <p className="text-[11px] font-semibold text-brand-200">Next Payout</p>
                 <Calendar className="h-3.5 w-3.5 text-brand-200" />
               </div>
-              <p className="mt-1.5 text-xl font-extrabold">$86.90</p>
+              <p className="mt-1.5 text-xl font-extrabold">$150,000</p>
               <p className="text-[10px] text-brand-200/80">In 3 days</p>
             </div>
           </div>
@@ -165,24 +158,17 @@ export default function DashboardPage() {
           <h2 className="text-lg font-extrabold tracking-tight text-ink-900">
             Account Summary
           </h2>
-          <Link
-            href="/transactions"
-            className="flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
-          >
-            See all <ArrowUpRight className="h-4 w-4" />
-          </Link>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <StatCard label="Available Balance" value={balance} icon={Wallet} trend={4.8} delay={0.05} />
           <StatCard label="Locked Savings" value={lockedTotal} icon={Lock} trendLabel="2 active plans" delay={0.1} />
           <StatCard label="APY Earned (YTD)" value={apyEarned} icon={Percent} trend={2.1} trendLabel="this year" delay={0.15} />
-          <StatCard label="Active Goals" value={goals.length} icon={Target} format="number" delay={0.2} />
         </div>
       </section>
 
-      {/* Chart + recent activity */}
-      <section className="grid grid-cols-1 gap-4 xl:grid-cols-5">
-        <GlassCard delay={0.15} hover={false} className="p-6 xl:col-span-3">
+      {/* Savings growth chart */}
+      <section>
+        <GlassCard delay={0.15} hover={false} className="p-6">
           <div className="mb-2 flex items-start justify-between">
             <div>
               <h3 className="text-base font-extrabold text-ink-900">Savings Growth</h3>
@@ -231,68 +217,8 @@ export default function DashboardPage() {
             </ResponsiveContainer>
           </div>
         </GlassCard>
-
-        <GlassCard delay={0.2} hover={false} className="p-4 xl:col-span-2">
-          <div className="mb-2 flex items-center justify-between px-2 pt-2">
-            <h3 className="text-base font-extrabold text-ink-900">Recent Activity</h3>
-            <Link
-              href="/transactions"
-              className="text-xs font-semibold text-brand-600 hover:text-brand-700"
-            >
-              View all
-            </Link>
-          </div>
-          <div>
-            {transactions.slice(0, 5).map((tx, i) => (
-              <TransactionRow key={tx.id} tx={tx} index={i} />
-            ))}
-          </div>
-        </GlassCard>
       </section>
 
-      {/* Goals preview */}
-      <section>
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-extrabold tracking-tight text-ink-900">
-            Savings Goals
-          </h2>
-          <Link
-            href="/goals"
-            className="flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
-          >
-            Manage <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {goals.slice(0, 3).map((g, i) => {
-            const pct = Math.min(100, Math.round((g.saved / g.target) * 100));
-            return (
-              <GlassCard key={g.id} delay={0.1 + i * 0.07} className="p-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-xl">
-                    {g.emoji}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-bold text-ink-900">{g.name}</p>
-                    <p className="text-xs text-ink-400">
-                      {formatCurrency(g.saved)} of {formatCurrency(g.target)}
-                    </p>
-                  </div>
-                  <span className="text-sm font-extrabold text-brand-600">{pct}%</span>
-                </div>
-                <div className="mt-4 h-2 overflow-hidden rounded-full bg-brand-100/70">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${pct}%` }}
-                    transition={{ duration: 1, delay: 0.3 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-400"
-                  />
-                </div>
-              </GlassCard>
-            );
-          })}
-        </div>
-      </section>
     </div>
   );
 }

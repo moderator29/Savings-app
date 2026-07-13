@@ -45,7 +45,7 @@ export default function RewardsPage() {
 
   const handleClaim = () => {
     if (claimed) return;
-    addTransaction("reward", "Savings streak reward", 25);
+    addTransaction("reward", "Savings streak reward", 25_000);
     setClaimed(true);
   };
 
@@ -131,7 +131,7 @@ export default function RewardsPage() {
               <Flame className="h-5 w-5" />
             </div>
             <h3 className="mt-4 font-extrabold tracking-tight text-ink-900">
-              Streak bonus — $25
+              Streak bonus — $25,000
             </h3>
             <p className="mt-1 flex-1 text-sm text-ink-600">
               A thank-you for 45 straight days of saving. Claim it straight to
