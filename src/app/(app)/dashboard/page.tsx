@@ -25,6 +25,7 @@ import {
   Tooltip,
   XAxis,
 } from "recharts";
+import { AnnouncementBanner } from "@/components/dashboard/announcement-banner";
 import { GlassCard } from "@/components/ui/glass-card";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { StatCard } from "@/components/shared/stat-card";
@@ -60,6 +61,9 @@ export default function DashboardPage() {
           {user ? firstName(user.name) : ""} 👋
         </h1>
       </div>
+
+      {/* Swipeable announcement banner — sits directly below the greeting */}
+      <AnnouncementBanner />
 
       {/* Balance hero */}
       <motion.section
