@@ -1,8 +1,8 @@
-# Verith — Smart Money. Limitless Future.
+# Ecokripto — Smart Money. Limitless Future.
 
 A premium, glass-morphism **savings dashboard demo** built with Next.js 15.
 
-> **Demo only.** Verith is a UI/UX showcase. There is no backend — accounts,
+> **Demo only.** Ecokripto is a UI/UX showcase. There is no backend — accounts,
 > balances, transactions, goals and notifications are simulated and stored
 > locally in your browser (localStorage). No real money is ever involved.
 

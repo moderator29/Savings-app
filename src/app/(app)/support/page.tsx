@@ -7,7 +7,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/shared/page-header";
 
-const SUPPORT_EMAIL = "support@verith.com";
+const SUPPORT_EMAIL = "support@ecokripto.com";
 
 const FAQS: { question: string; answer: string }[] = [
   {
@@ -28,7 +28,7 @@ const FAQS: { question: string; answer: string }[] = [
   {
     question: "What is APY?",
     answer:
-      "APY (Annual Percentage Yield) is the yearly rate your savings grow at, including compounding. Verith applies a 4.25% APY to your balance.",
+      "APY (Annual Percentage Yield) is the yearly rate your savings grow at, including compounding. Ecokripto applies a 4.25% APY to your balance.",
   },
 ];
 

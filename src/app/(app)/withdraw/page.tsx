@@ -15,7 +15,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { PageHeader } from "@/components/shared/page-header";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { formatCurrency, cn } from "@/lib/utils";
 
 interface Destination {
@@ -34,8 +34,8 @@ const QUICK_AMOUNTS = [50, 100, 250] as const;
 
 export default function WithdrawPage() {
   const router = useRouter();
-  const balance = useVerith((s) => s.balance);
-  const addTransaction = useVerith((s) => s.addTransaction);
+  const balance = useEcokripto((s) => s.balance);
+  const addTransaction = useEcokripto((s) => s.addTransaction);
 
   const [amountInput, setAmountInput] = useState("");
   const [destinationId, setDestinationId] = useState<string>(DESTINATIONS[0].id);
@@ -80,7 +80,7 @@ export default function WithdrawPage() {
     <div className="space-y-6">
       <PageHeader
         title="Withdraw"
-        subtitle="Move money out of your Verith balance — instant"
+        subtitle="Move money out of your Ecokripto balance — instant"
       />
 
       <div className="mx-auto w-full max-w-xl">

@@ -7,7 +7,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/modal";
 import { PageHeader } from "@/components/shared/page-header";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 function Toggle({
@@ -72,7 +72,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 export default function SettingsPage() {
   const router = useRouter();
-  const signOut = useVerith((s) => s.signOut);
+  const signOut = useEcokripto((s) => s.signOut);
 
   const [privacyMode, setPrivacyMode] = React.useState(true);
   const [weeklySummary, setWeeklySummary] = React.useState(false);
@@ -91,7 +91,7 @@ export default function SettingsPage() {
     <div className="mx-auto w-full max-w-2xl">
       <PageHeader
         title="Settings"
-        subtitle="Preferences for your Verith experience"
+        subtitle="Preferences for your Ecokripto experience"
       />
 
       <div className="mt-6 flex flex-col gap-5">
@@ -124,7 +124,7 @@ export default function SettingsPage() {
           <div className="divide-y divide-ink-400/10">
             <ToggleRow
               label="Product updates"
-              description="Occasional news about new Verith features."
+              description="Occasional news about new Ecokripto features."
               on={productUpdates}
               onToggle={() => setProductUpdates((v) => !v)}
             />
@@ -156,7 +156,7 @@ export default function SettingsPage() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="pb-2 text-center text-xs text-ink-400"
         >
-          Verith &middot; v1.0.0
+          Ecokripto &middot; v1.0.0
         </motion.p>
       </div>
 

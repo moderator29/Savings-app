@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/shared/page-header";
 import { StatCard } from "@/components/shared/stat-card";
 import { EmptyState } from "@/components/shared/empty-state";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 
 const STEPS: { icon: LucideIcon; title: string; body: string }[] = [
   {
@@ -28,7 +28,7 @@ const STEPS: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: UserPlus,
     title: "Friend creates an account",
-    body: "They sign up and start saving with Verith.",
+    body: "They sign up and start saving with Ecokripto.",
   },
   {
     icon: Gift,
@@ -43,11 +43,11 @@ function referralCode(email: string | undefined): string {
     .replace(/[^a-zA-Z0-9]/g, "")
     .toUpperCase()
     .slice(0, 6);
-  return `VERITH-${prefix || "SAVER"}`;
+  return `ECOKRIPTO-${prefix || "SAVER"}`;
 }
 
 export default function ReferralsPage() {
-  const user = useVerith((s) => s.user);
+  const user = useEcokripto((s) => s.user);
   const [copied, setCopied] = useState(false);
 
   const code = referralCode(user?.email);

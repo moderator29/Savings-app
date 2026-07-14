@@ -43,7 +43,7 @@ export const seedLockedPlans = (): LockedPlan[] => [
 export const seedNotifications = (name: string): AppNotification[] => [
   {
     id: "n1",
-    title: `Welcome to Verith, ${name.split(" ")[0]} 👋`,
+    title: `Welcome to Ecokripto, ${name.split(" ")[0]} 👋`,
     body: "Your account is ready. Explore savings, locked plans and investments.",
     date: new Date().toISOString(),
     read: false,

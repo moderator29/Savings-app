@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PageHeader } from "@/components/shared/page-header";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { cn, formatCurrency } from "@/lib/utils";
 
 const QUICK_AMOUNTS = [50, 100, 250, 500, 1000] as const;
@@ -29,8 +29,8 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function DepositPage() {
   const router = useRouter();
-  const balance = useVerith((s) => s.balance);
-  const addTransaction = useVerith((s) => s.addTransaction);
+  const balance = useEcokripto((s) => s.balance);
+  const addTransaction = useEcokripto((s) => s.addTransaction);
 
   const [amount, setAmount] = React.useState("");
   const [methodId, setMethodId] = React.useState<string>(METHODS[0].id);
@@ -69,7 +69,7 @@ export default function DepositPage() {
     <div className="mx-auto w-full max-w-xl">
       <PageHeader
         title="Deposit"
-        subtitle="Add money to your Verith balance — instant"
+        subtitle="Add money to your Ecokripto balance — instant"
       />
 
       <GlassCard className="p-6" delay={0.1}>

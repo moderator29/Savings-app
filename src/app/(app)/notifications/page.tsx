@@ -5,14 +5,14 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/shared/page-header";
 import { EmptyState } from "@/components/shared/empty-state";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { formatDate, cn } from "@/lib/utils";
 import type { AppNotification } from "@/lib/types";
 
 export default function NotificationsPage() {
-  const notifications = useVerith((s) => s.notifications);
-  const markAllRead = useVerith((s) => s.markAllRead);
-  const markRead = useVerith((s) => s.markRead);
+  const notifications = useEcokripto((s) => s.notifications);
+  const markAllRead = useEcokripto((s) => s.markAllRead);
+  const markRead = useEcokripto((s) => s.markRead);
 
   const hasUnread = notifications.some((n: AppNotification) => !n.read);
 

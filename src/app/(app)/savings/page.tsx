@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { PageHeader } from "@/components/shared/page-header";
 import { StatCard } from "@/components/shared/stat-card";
-import { selectApyEarned, useVerith } from "@/lib/store";
+import { selectApyEarned, useEcokripto } from "@/lib/store";
 import { SEED_APY } from "@/lib/seed";
 import type { Transaction } from "@/lib/types";
 
@@ -22,9 +22,9 @@ const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 
 export default function SavingsPage() {
   const router = useRouter();
-  const balance = useVerith((s) => s.balance);
-  const transactions = useVerith((s) => s.transactions);
-  const apyEarned = useVerith(selectApyEarned);
+  const balance = useEcokripto((s) => s.balance);
+  const transactions = useEcokripto((s) => s.transactions);
+  const apyEarned = useEcokripto(selectApyEarned);
 
   const cutoff = Date.now() - THIRTY_DAYS_MS;
   const monthSaved = transactions

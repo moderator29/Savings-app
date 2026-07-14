@@ -19,7 +19,7 @@ import {
 } from "./seed";
 import { uid } from "./utils";
 
-interface VerithState {
+interface EcokriptoState {
   user: User | null;
   balance: number;
   transactions: Transaction[];
@@ -40,7 +40,7 @@ interface VerithState {
   setHydrated: () => void;
 }
 
-export const useVerith = create<VerithState>()(
+export const useEcokripto = create<EcokriptoState>()(
   persist(
     (set) => ({
       user: null,
@@ -152,7 +152,7 @@ export const useVerith = create<VerithState>()(
       setHydrated: () => set({ hydrated: true }),
     }),
     {
-      name: "verith-store",
+      name: "ecokripto-store",
       onRehydrateStorage: () => (state) => {
         state?.setHydrated();
       },
@@ -160,10 +160,10 @@ export const useVerith = create<VerithState>()(
   )
 );
 
-export const selectLockedTotal = (s: VerithState) =>
+export const selectLockedTotal = (s: EcokriptoState) =>
   s.lockedPlans.reduce((sum, p) => sum + p.amount, 0);
 
-export const selectApyEarned = (s: VerithState) =>
+export const selectApyEarned = (s: EcokriptoState) =>
   s.transactions
     .filter((t) => t.type === "apy")
     .reduce((sum, t) => sum + t.amount, 0);

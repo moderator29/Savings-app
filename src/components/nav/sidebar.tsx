@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 import { LogOut } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { primaryNav, secondaryNav } from "./nav-items";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 export function Sidebar() {
   const pathname = usePathname();
-  const signOut = useVerith((s) => s.signOut);
-  const unread = useVerith(
+  const signOut = useEcokripto((s) => s.signOut);
+  const unread = useEcokripto(
     (s) => s.notifications.filter((n) => !n.read).length
   );
 

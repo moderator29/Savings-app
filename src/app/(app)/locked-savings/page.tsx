@@ -10,7 +10,7 @@ import { Modal } from "@/components/ui/modal";
 import { PageHeader } from "@/components/shared/page-header";
 import { EmptyState } from "@/components/shared/empty-state";
 import { StatCard } from "@/components/shared/stat-card";
-import { useVerith, selectLockedTotal } from "@/lib/store";
+import { useEcokripto, selectLockedTotal } from "@/lib/store";
 import { cn, formatCurrency, formatDate } from "@/lib/utils";
 import type { LockedPlan } from "@/lib/types";
 
@@ -34,10 +34,10 @@ function termProgress(plan: LockedPlan): number {
 }
 
 export default function LockedSavingsPage() {
-  const balance = useVerith((s) => s.balance);
-  const lockedPlans = useVerith((s) => s.lockedPlans);
-  const addLockedPlan = useVerith((s) => s.addLockedPlan);
-  const lockedTotal = useVerith(selectLockedTotal);
+  const balance = useEcokripto((s) => s.balance);
+  const lockedPlans = useEcokripto((s) => s.lockedPlans);
+  const addLockedPlan = useEcokripto((s) => s.addLockedPlan);
+  const lockedTotal = useEcokripto(selectLockedTotal);
 
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");

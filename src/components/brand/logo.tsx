@@ -53,7 +53,7 @@ export function Logo({
       {!compact && (
         <div className="leading-none">
           <span className="text-lg font-extrabold tracking-[0.18em] text-ink-900">
-            VERITH
+            ECOKRIPTO
           </span>
           <p className="mt-1 text-[8px] font-semibold tracking-[0.14em] text-ink-400">
             SMART MONEY. <span className="text-brand-500">LIMITLESS FUTURE.</span>

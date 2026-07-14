@@ -4,12 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Bell, Menu } from "lucide-react";
 import { Logo, LogoMark } from "@/components/brand/logo";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { firstName, initials } from "@/lib/utils";
 
 export function Topbar({ onMenu }: { onMenu: () => void }) {
-  const user = useVerith((s) => s.user);
-  const unread = useVerith(
+  const user = useEcokripto((s) => s.user);
+  const unread = useEcokripto(
     (s) => s.notifications.filter((n) => !n.read).length
   );
 
