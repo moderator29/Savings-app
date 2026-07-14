@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { LogOut, X } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { primaryNav, secondaryNav } from "./nav-items";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 export function MoreDrawer({
@@ -17,7 +17,7 @@ export function MoreDrawer({
   onClose: () => void;
 }) {
   const pathname = usePathname();
-  const signOut = useVerith((s) => s.signOut);
+  const signOut = useEcokripto((s) => s.signOut);
   const items = [...primaryNav, ...secondaryNav];
 
   return (

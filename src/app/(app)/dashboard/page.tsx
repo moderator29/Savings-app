@@ -27,7 +27,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { StatCard } from "@/components/shared/stat-card";
 import { seedHistory, SEED_APY } from "@/lib/seed";
-import { selectApyEarned, selectLockedTotal, useVerith } from "@/lib/store";
+import { selectApyEarned, selectLockedTotal, useEcokripto } from "@/lib/store";
 import { cn, firstName, formatCurrency } from "@/lib/utils";
 
 const quickActions = [
@@ -38,10 +38,10 @@ const quickActions = [
 ];
 
 export default function DashboardPage() {
-  const user = useVerith((s) => s.user);
-  const balance = useVerith((s) => s.balance);
-  const lockedTotal = useVerith(selectLockedTotal);
-  const apyEarned = useVerith(selectApyEarned);
+  const user = useEcokripto((s) => s.user);
+  const balance = useEcokripto((s) => s.balance);
+  const lockedTotal = useEcokripto(selectLockedTotal);
+  const apyEarned = useEcokripto(selectApyEarned);
   const [hidden, setHidden] = useState(false);
 
   const history = seedHistory();

@@ -8,13 +8,13 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { Field, Input } from "@/components/ui/input";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 
 export default function SignUpPage() {
   const router = useRouter();
-  const user = useVerith((s) => s.user);
-  const hydrated = useVerith((s) => s.hydrated);
-  const signUp = useVerith((s) => s.signUp);
+  const user = useEcokripto((s) => s.user);
+  const hydrated = useEcokripto((s) => s.hydrated);
+  const signUp = useEcokripto((s) => s.signUp);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { LogoMark } from "@/components/brand/logo";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 
 export default function Home() {
   const router = useRouter();
-  const user = useVerith((s) => s.user);
-  const hydrated = useVerith((s) => s.hydrated);
+  const user = useEcokripto((s) => s.user);
+  const hydrated = useEcokripto((s) => s.hydrated);
 
   useEffect(() => {
     if (!hydrated) return;

@@ -3,9 +3,9 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Verith — Smart Money. Limitless Future.",
+  title: "Ecokripto — Smart Money. Limitless Future.",
   description:
-    "Verith — a premium savings and investment dashboard. Smart money, limitless future.",
+    "Ecokripto — a premium savings and investment dashboard. Smart money, limitless future.",
 };
 
 export default function RootLayout({

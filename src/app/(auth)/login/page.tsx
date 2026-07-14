@@ -8,13 +8,13 @@ import { ArrowRight } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { Field, Input } from "@/components/ui/input";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 
 export default function LoginPage() {
   const router = useRouter();
-  const user = useVerith((s) => s.user);
-  const hydrated = useVerith((s) => s.hydrated);
-  const signUp = useVerith((s) => s.signUp);
+  const user = useEcokripto((s) => s.user);
+  const hydrated = useEcokripto((s) => s.hydrated);
+  const signUp = useEcokripto((s) => s.signUp);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +33,7 @@ export default function LoginPage() {
       .split("@")[0]
       .replace(/[._-]+/g, " ")
       .replace(/\b\w/g, (c) => c.toUpperCase());
-    signUp(nameGuess || "Verith Member", email.trim().toLowerCase());
+    signUp(nameGuess || "Ecokripto Member", email.trim().toLowerCase());
     router.replace("/dashboard");
   };
 
@@ -51,7 +51,7 @@ export default function LoginPage() {
             Welcome back
           </h1>
           <p className="mt-1.5 text-sm text-ink-400">
-            Sign in to your Verith account.
+            Sign in to your Ecokripto account.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-6 text-center text-sm text-ink-400">
-          New to Verith?{" "}
+          New to Ecokripto?{" "}
           <Link
             href="/signup"
             className="font-semibold text-brand-600 hover:text-brand-700"

@@ -15,7 +15,7 @@ import {
 import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/shared/page-header";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { formatDate, initials } from "@/lib/utils";
 
 const quickSettings = [
@@ -41,8 +41,8 @@ const quickSettings = [
 
 export default function ProfilePage() {
   const router = useRouter();
-  const user = useVerith((s) => s.user);
-  const signOut = useVerith((s) => s.signOut);
+  const user = useEcokripto((s) => s.user);
+  const signOut = useEcokripto((s) => s.signOut);
 
   if (!user) return null;
 
@@ -62,7 +62,7 @@ export default function ProfilePage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Profile" subtitle="Your Verith account" />
+      <PageHeader title="Profile" subtitle="Your Ecokripto account" />
 
       <div className="mx-auto w-full max-w-2xl space-y-6">
         {/* Identity card */}

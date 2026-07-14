@@ -14,7 +14,7 @@ import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { PageHeader } from "@/components/shared/page-header";
 import { EmptyState } from "@/components/shared/empty-state";
 import { TransactionRow } from "@/components/shared/transaction-row";
-import { useVerith, selectApyEarned } from "@/lib/store";
+import { useEcokripto, selectApyEarned } from "@/lib/store";
 import { formatCurrency } from "@/lib/utils";
 import { SEED_APY } from "@/lib/seed";
 import type { Transaction } from "@/lib/types";
@@ -29,8 +29,8 @@ const MONTHLY_EARNINGS = [
 ];
 
 export default function ApyEarningsPage() {
-  const apyEarned = useVerith(selectApyEarned);
-  const transactions = useVerith((s) => s.transactions);
+  const apyEarned = useEcokripto(selectApyEarned);
+  const transactions = useEcokripto((s) => s.transactions);
   const payouts = transactions.filter((tx: Transaction) => tx.type === "apy");
 
   return (

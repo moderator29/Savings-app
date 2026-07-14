@@ -7,7 +7,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/shared/stat-card";
 import { PageHeader } from "@/components/shared/page-header";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import type { Transaction } from "@/lib/types";
 
@@ -35,8 +35,8 @@ const LOCKED_REWARDS: { icon: LucideIcon; title: string; description: string }[]
 ];
 
 export default function RewardsPage() {
-  const transactions = useVerith((s) => s.transactions);
-  const addTransaction = useVerith((s) => s.addTransaction);
+  const transactions = useEcokripto((s) => s.transactions);
+  const addTransaction = useEcokripto((s) => s.addTransaction);
   const [claimed, setClaimed] = useState(false);
 
   const rewardsEarned = transactions

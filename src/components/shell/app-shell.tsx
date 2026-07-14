@@ -8,13 +8,13 @@ import { BottomNav } from "@/components/nav/bottom-nav";
 import { MoreDrawer } from "@/components/nav/more-drawer";
 import { Topbar } from "@/components/nav/topbar";
 import { LogoMark } from "@/components/brand/logo";
-import { useVerith } from "@/lib/store";
+import { useEcokripto } from "@/lib/store";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const user = useVerith((s) => s.user);
-  const hydrated = useVerith((s) => s.hydrated);
+  const user = useEcokripto((s) => s.user);
+  const hydrated = useEcokripto((s) => s.hydrated);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
