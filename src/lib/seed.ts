@@ -3,7 +3,16 @@ import type {
   Goal,
   LockedPlan,
   Transaction,
+  User,
 } from "./types";
+
+// The single permanent account the platform loads into. There is no sign-up
+// or login — every visitor lands straight in as this user.
+export const DEMO_USER: User = {
+  name: "Tamara Lee Gilmore",
+  email: "tamara.gilmore@ecokripto.com",
+  joinedAt: "2024-03-12T09:00:00.000Z",
+};
 
 // Demo data seeded into every new local account. All figures are simulated —
 // nothing here represents real money or a real financial product.
