@@ -28,7 +28,7 @@ import { AnimatedCurrency } from "@/components/ui/animated-number";
 import { StatCard } from "@/components/shared/stat-card";
 import { seedHistory, SEED_APY } from "@/lib/seed";
 import { selectApyEarned, selectLockedTotal, useEcokripto } from "@/lib/store";
-import { cn, firstName, formatCurrency } from "@/lib/utils";
+import { cn, formatCurrency } from "@/lib/utils";
 
 const quickActions = [
   { label: "Deposit", href: "/deposit", icon: ArrowDownToLine },
@@ -51,7 +51,7 @@ export default function DashboardPage() {
       <div className="lg:hidden">
         <p className="text-xs font-medium text-ink-400">Welcome back,</p>
         <h1 className="text-xl font-extrabold tracking-tight text-ink-900">
-          {user ? firstName(user.name) : ""} 👋
+          {user ? user.name : ""} 👋
         </h1>
       </div>
 
