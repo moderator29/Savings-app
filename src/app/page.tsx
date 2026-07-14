@@ -4,17 +4,13 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { LogoMark } from "@/components/brand/logo";
-import { useEcokripto } from "@/lib/store";
 
 export default function Home() {
   const router = useRouter();
-  const user = useEcokripto((s) => s.user);
-  const hydrated = useEcokripto((s) => s.hydrated);
 
   useEffect(() => {
-    if (!hydrated) return;
-    router.replace(user ? "/dashboard" : "/login");
-  }, [hydrated, user, router]);
+    router.replace("/dashboard");
+  }, [router]);
 
   return (
     <div className="flex min-h-screen items-center justify-center">

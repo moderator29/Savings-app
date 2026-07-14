@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sidebar } from "@/components/nav/sidebar";
 import { BottomNav } from "@/components/nav/bottom-nav";
@@ -11,15 +11,10 @@ import { LogoMark } from "@/components/brand/logo";
 import { useEcokripto } from "@/lib/store";
 
 export function AppShell({ children }: { children: ReactNode }) {
-  const router = useRouter();
   const pathname = usePathname();
   const user = useEcokripto((s) => s.user);
   const hydrated = useEcokripto((s) => s.hydrated);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  useEffect(() => {
-    if (hydrated && !user) router.replace("/login");
-  }, [hydrated, user, router]);
 
   if (!hydrated || !user) {
     return (

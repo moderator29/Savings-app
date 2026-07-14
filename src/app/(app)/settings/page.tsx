@@ -84,7 +84,7 @@ export default function SettingsPage() {
   const handleReset = () => {
     setConfirmOpen(false);
     signOut();
-    router.replace("/signup");
+    router.replace("/dashboard");
   };
 
   return (

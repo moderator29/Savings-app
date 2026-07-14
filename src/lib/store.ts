@@ -11,6 +11,7 @@ import type {
   User,
 } from "./types";
 import {
+  DEMO_USER,
   SEED_BALANCE,
   seedGoals,
   seedLockedPlans,
@@ -18,6 +19,16 @@ import {
   seedTransactions,
 } from "./seed";
 import { uid } from "./utils";
+
+// A fresh, fully-provisioned session for the permanent demo user.
+const freshSession = () => ({
+  user: DEMO_USER,
+  balance: SEED_BALANCE,
+  transactions: seedTransactions(),
+  goals: seedGoals(),
+  lockedPlans: seedLockedPlans(),
+  notifications: seedNotifications(DEMO_USER.name),
+});
 
 interface EcokriptoState {
   user: User | null;
@@ -43,12 +54,9 @@ interface EcokriptoState {
 export const useEcokripto = create<EcokriptoState>()(
   persist(
     (set) => ({
-      user: null,
-      balance: 0,
-      transactions: [],
-      goals: [],
-      lockedPlans: [],
-      notifications: [],
+      // The platform boots straight into the permanent demo account —
+      // there is no sign-up / login flow.
+      ...freshSession(),
       hydrated: false,
 
       signUp: (name, email) =>
@@ -61,15 +69,8 @@ export const useEcokripto = create<EcokriptoState>()(
           notifications: seedNotifications(name),
         }),
 
-      signOut: () =>
-        set({
-          user: null,
-          balance: 0,
-          transactions: [],
-          goals: [],
-          lockedPlans: [],
-          notifications: [],
-        }),
+      // No auth to sign out of — this simply resets to a fresh session.
+      signOut: () => set(freshSession()),
 
       addTransaction: (type, label, amount) =>
         set((s) => ({

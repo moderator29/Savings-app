@@ -57,7 +57,7 @@ export default function ProfilePage() {
 
   const handleSignOut = () => {
     signOut();
-    router.replace("/login");
+    router.replace("/dashboard");
   };
 
   return (
