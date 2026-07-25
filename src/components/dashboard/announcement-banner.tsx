@@ -13,7 +13,7 @@ const announcements = [
     id: "a1",
     badge: "New",
     message:
-      "Your investment plan is approaching maturity. Review your settlement details then an amount of $20,500.",
+      "Your investment plan is approaching maturity. Review your settlement details then an amount of $25,000.",
   },
   {
     id: "a2",
